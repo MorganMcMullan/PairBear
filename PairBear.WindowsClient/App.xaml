@@ -1,0 +1,14 @@
+﻿<Application x:Class="PairBear.WindowsClient.App"
+						 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						 xmlns:local="clr-namespace:PairBear.WindowsClient"
+						 StartupUri="MainWindow.xaml">
+	<Application.Resources>
+		<SolidColorBrush x:Key="AccentColorBrush"
+                         Color="#FF515151" />
+		<SolidColorBrush x:Key="BackgroundColorBrush"
+                         Color="#FF919191" />
+		<SolidColorBrush x:Key="ForegroundColorBrush"
+                         Color="White" />
+	</Application.Resources>
+</Application>

@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="PairBear.WindowsClient.PairList"
+						 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+						 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+						 xmlns:local="clr-namespace:PairBear.WindowsClient"
+						 mc:Ignorable="d"
+						 FontSize="16"
+						 x:Name="PairListControl">
+	<StackPanel Orientation="Vertical"
+							Background="{StaticResource BackgroundColorBrush}"
+							Margin="20">
+		<StackPanel Orientation="Horizontal"
+								Background="{StaticResource ForegroundColorBrush}">
+			<StackPanel.Resources>
+				<Style TargetType="Button">
+					<Setter Property="Height"
+									Value="60" />
+					<Setter Property="Width"
+									Value="150" />
+					<Setter Property="Margin"
+									Value="100, 10" />
+					<Setter Property="HorizontalContentAlignment"
+									Value="Center" />
+					<Setter Property="HorizontalContentAlignment"
+									Value="Center" />
+					<Setter Property="VerticalContentAlignment"
+									Value="Center" />
+					<Setter Property="FontWeight"
+									Value="DemiBold" />
+					<Setter Property="Foreground"
+									Value="{StaticResource AccentColorBrush}" />
+					<Setter Property="FontSize"
+									Value="24" />
+				</Style>
+			</StackPanel.Resources>
+			<Button Content="Key"
+							Click="KeyHeader_Click" />
+			<Button Content="Value"
+							Click="ValueHeader_Click" />
+		</StackPanel>
+		<ScrollViewer Background="{StaticResource ForegroundColorBrush}"
+									Height="440">
+			<ListView x:Name="PairListListView"
+								ItemsSource="{Binding Pairs}"
+								SelectedItem="{Binding SelectedPair, Mode=OneWayToSource}"
+								SelectionChanged="PairListListView_SelectionChanged">
+				<ListView.Resources>
+					<Style TargetType="Label">
+						<Setter Property="Height"
+										Value="60" />
+						<Setter Property="Width"
+										Value="150" />
+						<Setter Property="Margin"
+										Value="100, 10" />
+						<Setter Property="HorizontalContentAlignment"
+										Value="Center" />
+						<Setter Property="HorizontalContentAlignment"
+										Value="Center" />
+						<Setter Property="VerticalContentAlignment"
+										Value="Center" />
+						<Setter Property="FontWeight"
+										Value="DemiBold" />
+						<Setter Property="Foreground"
+										Value="{StaticResource AccentColorBrush}" />
+						<Setter Property="FontSize"
+										Value="18" />
+					</Style>
+				</ListView.Resources>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal"
+												Background="{StaticResource ForegroundColorBrush}">
+							<Label Content="{Binding Path=Key, Mode=OneWay}" />
+							<Label Content="{Binding Path=Value, Mode=OneWay}" />
+							<Button Content="X"
+											Click="DeleteButton_Click" />
+						</StackPanel>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</ScrollViewer>
+	</StackPanel>
+</UserControl>
