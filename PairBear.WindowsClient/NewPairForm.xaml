@@ -8,7 +8,8 @@
 						 FontSize="16">
 	<StackPanel Orientation="Horizontal"
 							Background="{StaticResource ForegroundColorBrush}"
-							Margin="20, 20">
+							Margin="20"
+							Width="760">
 		<StackPanel.Resources>
 			<Style TargetType="TextBox">
 				<Setter Property="Height"

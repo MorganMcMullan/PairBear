@@ -70,6 +70,8 @@ namespace PairBear.WindowsClient.ViewModels
 		{
 			PairService = pairService;
 			Pairs = PairService.GetPairs();
+			KeyButtonText = "Key ↓↑";
+			ValueButtonText = "Value ↓↑";
 			PairService.RepositoryUpdated += OnPairAdded;
 
 			ListSortStatusStateMachine = new StateMachine<State, Trigger>(State.Unsorted);
@@ -80,34 +82,39 @@ namespace PairBear.WindowsClient.ViewModels
 		{
 			ListSortStatusStateMachine.Configure(State.Unsorted)
 			.OnEntry(GetPairsUnsorted)
+			.OnActivate(GetPairsUnsorted)
 			.Permit(Trigger.SortByKeyAscending, State.SortedByKeyAscending)
 			.Permit(Trigger.SortByValueAscending, State.SortedByValueAscending);
 
 			ListSortStatusStateMachine.Configure(State.SortedByKeyAscending)
 			.OnEntry(GetPairsSortedByKeyAscending)
+			.OnActivate(GetPairsSortedByKeyAscending)
 			.Permit(Trigger.SortByKeyDescending, State.SortedByKeyDescending)
 			.Permit(Trigger.SortByValueAscending, State.SortedByValueAscending);
 
 			ListSortStatusStateMachine.Configure(State.SortedByKeyDescending)
 			.OnEntry(GetPairsSortedByKeyDescending)
+			.OnActivate(GetPairsSortedByKeyDescending)
 			.Permit(Trigger.Unsort, State.Unsorted)
 			.Permit(Trigger.SortByValueAscending, State.SortedByValueAscending);
 
 			ListSortStatusStateMachine.Configure(State.SortedByValueAscending)
 			.OnEntry(GetPairsSortedByValueAscending)
+			.OnActivate(GetPairsSortedByValueAscending)
 			.Permit(Trigger.SortByKeyAscending, State.SortedByKeyAscending)
 			.Permit(Trigger.SortByValueDescending, State.SortedByValueDescending);
 
 			ListSortStatusStateMachine.Configure(State.SortedByValueDescending)
 			.OnEntry(GetPairsSortedByValueDescending)
+			.OnActivate(GetPairsSortedByValueDescending)
 			.Permit(Trigger.SortByKeyAscending, State.SortedByKeyAscending)
 			.Permit(Trigger.Unsort, State.Unsorted);
 		}
 
 		//If a new pair is added by the service get the updated list from the service
-		public void OnPairAdded(object? sender, EventArgs e)
+		public void OnPairAdded(object sender, EventArgs e)
 		{
-			Pairs = PairService.GetPairs();
+			ListSortStatusStateMachine.Activate();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -176,26 +183,36 @@ namespace PairBear.WindowsClient.ViewModels
 
 		private void GetPairsUnsorted()
 		{
+			KeyButtonText = "Key ↓↑";
+			ValueButtonText = "Value ↓↑";
 			Pairs = PairService.GetPairs();
 		}
 
 		private void GetPairsSortedByKeyDescending()
 		{
+			KeyButtonText = "Key ↓";
+			ValueButtonText = "Value ↓↑";
 			Pairs = PairService.GetPairsSortedByKeyDescending();
 		}
 
 		private void GetPairsSortedByKeyAscending()
 		{
+			KeyButtonText = "Key ↑";
+			ValueButtonText = "Value ↓↑";
 			Pairs = PairService.GetPairsSortedByKeyAscending();
 		}
 
 		private void GetPairsSortedByValueDescending()
 		{
+			KeyButtonText = "Key ↓↑";
+			ValueButtonText = "Value ↓";
 			Pairs = PairService.GetPairsSortedByValueDescending();
 		}
 
 		private void GetPairsSortedByValueAscending()
 		{
+			KeyButtonText = "Key ↓↑";
+			ValueButtonText = "Value ↑";
 			Pairs = PairService.GetPairsSortedByValueAscending();
 		}
 

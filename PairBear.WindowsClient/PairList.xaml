@@ -9,8 +9,9 @@
 						 x:Name="PairListControl">
 	<StackPanel Orientation="Vertical"
 							Background="{StaticResource BackgroundColorBrush}"
-							Margin="20">
-		<StackPanel Orientation="Horizontal"
+							Margin="20"
+							Width="760">
+		<StackPanel Orientation="Horizontal" 
 								Background="{StaticResource ForegroundColorBrush}">
 			<StackPanel.Resources>
 				<Style TargetType="Button">
@@ -19,7 +20,7 @@
 					<Setter Property="Width"
 									Value="150" />
 					<Setter Property="Margin"
-									Value="100, 10" />
+									Value="115, 10" />
 					<Setter Property="HorizontalContentAlignment"
 									Value="Center" />
 					<Setter Property="HorizontalContentAlignment"
@@ -34,9 +35,9 @@
 									Value="24" />
 				</Style>
 			</StackPanel.Resources>
-			<Button Content="Key"
+			<Button Content="{Binding KeyButtonText}"
 							Click="KeyHeader_Click" />
-			<Button Content="Value"
+			<Button Content="{Binding ValueButtonText}"
 							Click="ValueHeader_Click" />
 		</StackPanel>
 		<ScrollViewer Background="{StaticResource ForegroundColorBrush}"

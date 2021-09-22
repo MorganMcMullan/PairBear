@@ -8,17 +8,26 @@
 				Title="MainWindow"
 				MinHeight="800"
 				MaxHeight="800"
-				MinWidth="800"
-				MaxWidth="800">
+				MinWidth="820"
+				MaxWidth="820">
 	<DockPanel Background="{StaticResource BackgroundColorBrush}">
-		<Label Content="Pair Bear"
-					 FontSize="40"
-					 FontFamily="Arial"
-					 FontWeight="DemiBold"
-					 HorizontalContentAlignment="Center"
-					 Background="{StaticResource ForegroundColorBrush}" 
-					 Margin="0,20"
-					 DockPanel.Dock="Top"/>
+		<StackPanel Orientation="Horizontal"
+								DockPanel.Dock="Top"
+								Margin="20"
+								Background="{StaticResource ForegroundColorBrush}">
+			<Image Source="/Images/bear.png"
+						 Height="60"
+						 Width="80"/>
+			<Label Content="Pair Bear"
+						 FontSize="40"
+						 FontFamily="Arial"
+						 FontWeight="DemiBold"
+						 HorizontalContentAlignment="Center"
+						 Width="600" />
+			<Image Source="/Images/bear.png"
+						 Height="60"
+						 Width="80" />
+		</StackPanel>
 		<local:NewPairForm DockPanel.Dock="Bottom" />
 		<local:PairList />
 	</DockPanel>

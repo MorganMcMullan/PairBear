@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\bear.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="stateless" Version="5.11.0" />
@@ -15,6 +19,10 @@
   <ItemGroup>
     <ProjectReference Include="..\PairBear.Core\PairBear.Service.csproj" />
     <ProjectReference Include="..\PairBear.Models\PairBear.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\bear.png" />
   </ItemGroup>
 
 </Project>
