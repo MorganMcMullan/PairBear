@@ -67,9 +67,12 @@
 			</Style>
 		</StackPanel.Resources>
 		<Label Content="Key:" />
-		<TextBox Text="{Binding Path=Key, Mode=TwoWay}" />
+		<TextBox MaxLength="16"
+						 Text="{Binding Path=Key, Mode=TwoWay}" />
 		<Label Content="Value:" />
-		<TextBox Text="{Binding Path=Value, Mode=TwoWay}" />
-		<Button Content="Add Pair" Click="AddPair_Click" />
+		<TextBox MaxLength="16"
+						 Text="{Binding Path=Value, Mode=TwoWay}" />
+		<Button Content="Add Pair"
+						Click="AddPair_Click" />
 	</StackPanel>
 </UserControl>

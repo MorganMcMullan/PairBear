@@ -73,7 +73,7 @@
 						<StackPanel Orientation="Horizontal"
 												Background="{StaticResource ForegroundColorBrush}">
 							<Label Content="{Binding Path=Key, Mode=OneWay}" />
-							<Label Content="{Binding Path=Value, Mode=OneWay}" />
+							<Label Content="{Binding Path=Value, Mode=OneWay}" Margin="140, 0, 80, 0" />
 							<Button Content="X"
 											Click="DeleteButton_Click" />
 						</StackPanel>
