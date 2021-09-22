@@ -6,8 +6,8 @@
 				xmlns:local="clr-namespace:PairBear.WindowsClient"
 				mc:Ignorable="d"
 				Title="MainWindow"
-				MinHeight="800"
-				MaxHeight="800"
+				MinHeight="840"
+				MaxHeight="840"
 				MinWidth="820"
 				MaxWidth="820">
 	<DockPanel Background="{StaticResource BackgroundColorBrush}">
